@@ -1,3 +1,5 @@
+//This is just a concept
+
 class Disc {
     constructor(size){
         this.size = size
