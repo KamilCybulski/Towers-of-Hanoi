@@ -80,7 +80,7 @@ const playGame = (num) => {
             let disc = document.createElement('div');
             disc.classList.add('disc');
             disc.style.backgroundColor = item.color;
-            disc.style.width = `${item.size * 20}px`;
+            disc.style.width = `${item.size * 10}%`//item.size == 1 ? "20px" : `${item.size * 13}px`;
             stack.peg.appendChild(disc);
         }
     };
@@ -94,7 +94,8 @@ const playGame = (num) => {
     const move = (n, source, target, spare) => {
         if (n > 0) {
             move(n-1, source, spare, target);
-            setTimeout(() => {visualizeMove(source, target);},                   500*movesCounter++)
+            setTimeout(() => {visualizeMove(source, target);},
+            500*movesCounter++)
             target.push(source.pop());
             move(n-1, spare, target, source);
         }
@@ -133,6 +134,9 @@ const playGame = (num) => {
     populate(num, A);
     visualizeDiscs(A);
     isRunning = true;
-    move(num, A, B, C);
+    setTimeout(() => {
+        move(num, A, B, C);
+    }, 2000)
+    
 
 }
