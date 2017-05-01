@@ -48,25 +48,24 @@ const Disc = (() => {
 
 
 const Peg = (() => {
-    const arr = Symbol('arr');
+    const arr = []
 
     return class Stack {
         constructor(str){
-            this[arr] = []; 
             this.peg = document.querySelector(`.${str}`)
         }
         push(val) {
-            this[arr].push(val);
+            arr.push(val);
         }
         pop() {
-            return this[arr].pop()
+            return arr.pop()
         }
         clear() {
-            this[arr].length = 0;
+            arr.length = 0;
             return `Just emptied the peg!`;
         }
         *[Symbol.iterator]() {
-            yield * this[arr];
+            yield * arr;
         }
     }
 })();
