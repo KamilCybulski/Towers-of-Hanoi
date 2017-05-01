@@ -114,6 +114,10 @@ const clearPegs = (...stacks) => {
 
 const resetVisualization = () => {
     movesCounter = 0;
+    /*This solution is taken from: 
+    http://www.codesynthesis.co.uk/code-snippets/clearing-all-javascript-timeouts
+    and https://github.com/kuba-jablonski
+    */
     timeouts.map((timer)=> {
         clearTimeout(timer);
     });
